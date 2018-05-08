@@ -1,0 +1,77 @@
+#!/bin/bash
+#  CS 302, assignment #11 test script.
+
+# ---------------------------------------------------------
+#  Initial checks.
+#	Ensure executable file exists.
+#	Verify availability of testing support files.
+
+if [ -z $1 ]; then
+	echo "Error, must provide executable file name."
+	exit
+fi
+
+if [ ! -e $1 ] || [ ! -x $1 ]; then
+	echo "Error, unable to find $1 executable file."
+	exit
+fi
+
+if [ ! -e airports1.dat ]; then
+	echo "Error, unable to find airports file."
+	exit
+fi
+
+if [ ! -e flights.dat ]; then
+	echo "Error, unable to find flights file."
+	exit
+fi
+
+# ---------------------------------------------------------
+# Define script variables and function
+
+bolded=`tput bold`
+normal=`tput sgr0`
+
+pause() {
+	if [ "$1" = "skip" ]; then
+		echo
+	else
+		echo
+		echo -n "Press return to continue"
+		read
+		clear
+	fi
+}
+
+# ---------------------------------------------------------
+#  Begin testing...
+#
+clear
+echo "${bolded}CS 302 Assignment #11 Test Script${normal}"
+echo
+#
+# ---------------------------------------------------------
+#  Execution tests
+#
+echo "Execution Testing..."
+echo
+
+for iter in {1..5..1}
+do
+	echo "./"$1" -aiports1.dat flights.dat <tst$iter.txt >tmp$iter.txt"
+	./$1 airports1.dat flights.dat <tst$iter.txt >tmp$iter.txt
+
+	if `diff tmp$iter.txt mstr$iter.txt >/dev/null`; then
+		echo "Test $iter Successful"
+	else
+		diff tmp$iter.txt mstr$iter.txt
+	fi
+
+	echo
+done
+
+# ---------------------------------------------------------
+#  Done, end script
+#
+echo "Test Script Done."
+

@@ -1,0 +1,35 @@
+*****************************************************************
+[1mCS 302 - Assignment #11
+Final Project - Air Travel Routing Program[0m
+
+Graph Statistics:
+   Nodes: 5432
+   Edges: 1018792
+
+=================================================================
+[1mTravel Agent[0m
+  Origin Airport Code (3 letters):   Destination Airport Code (3 letters):   Earliest Departure Time: 
+--------------------------------------------
+From / To
+  ABQ - Albuquerque International Sunport Airport              
+  PHL - Philadelphia International Airport                     
+
+Flight:
+  ABQ-ELP :: DeptTime: 615   ArrvTime: 710   
+  Flight Number: WN 348
+
+Flight:
+  ELP-SAT :: DeptTime: 745   ArrvTime: 1005   
+  Flight Number: WN2262
+
+Flight:
+  SAT-PHL :: DeptTime: 1050   ArrvTime: 1520   
+  Flight Number: WN2270
+
+Another (Y/y/N/n): =================================================================
+[1mTravel Agent[0m
+  Origin Airport Code (3 letters):   Destination Airport Code (3 letters):   Earliest Departure Time: 
+No flights from AAA
+
+Another (Y/y/N/n): *****************************************************************
+Game over, thanks for playing.
